@@ -13,15 +13,16 @@ namespace ProgetoDeProdutos
         private DateTime DataCadastro;
 
         //Metodos da classe Marca
-        public string Cadastrar(int Codigo, string NomeMarca, DateTime DataCadastro)
+        public string CadastrarMarca(Marca)
+        {
+            
+        }
+
+        public List<Marca> ListarMarca()
         {
         }
 
-        public List<Marca> Listar()
-        {
-        }
-
-        public string Deletar(int Codigo)
+        public string DeletarMarca(int Codigo)
         {
         }
     }
