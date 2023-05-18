@@ -14,7 +14,7 @@ namespace ProgetoDeProdutos
         public Login()
         {
             //Variaveis
-            string opcao;
+            string opcao = "1";
             string opcaoLogin;
             bool loop = true;
             bool loopLogin = true;
@@ -26,45 +26,6 @@ namespace ProgetoDeProdutos
             //Logica
 
             //Primeira parte - Login
-
-            // do
-            // {
-            //     Console.WriteLine($@"
-            // Digite (1) para fazer login;
-            //        (2) para fazer cadastrar novo usuario;
-            //        (0) para finalizar programa.");
-
-            //     opcao = Console.ReadLine();
-
-            //     switch (opcao)
-            //     {
-            //         case "1":
-            //             Console.WriteLine($"{this.Logar(user)}");
-            //             loop = true;
-            //             break;
-
-            //         case "2":
-            //             user.CadastrarUser(user);
-            //             loop = true;
-            //             break;
-
-            //         case "0":
-            //             Console.WriteLine($"Programa encerrado");
-            //             loop = false;
-            //             goto case "4";
-
-            //         case "4":
-            //             Console.WriteLine($"Estamos progredindo. Digita qualquer coisa:");
-            //             Console.ReadLine();
-            //             break;
-            //         default:
-            //             break;
-            //     }
-            // } while (loop);
-
-            //---------------------------------------------------
-
-                opcao = "1";
 
             do
             {
@@ -88,8 +49,22 @@ namespace ProgetoDeProdutos
                         switch (opcaoLogin)
                         {
                             case "1":
-                                Console.WriteLine($"{this.Logar(user)}");
-                                loopLogin = true;
+
+                                string validacao;
+
+                                Console.WriteLine($"{validacao = this.Logar(user)}");
+
+                                if (validacao == "Para logar e preciso cadastrar um usuario")
+                                {
+                                    loopLogin = true;
+                                }
+
+                                else if (validacao == "Login executado com sucesso")
+                                {
+                                    loopLogin = false;
+                                    opcao = "2";
+                                }
+
                                 break;
 
                             case "2":
@@ -101,29 +76,31 @@ namespace ProgetoDeProdutos
                                 loopLogin = false;
                                 opcao = "0";
                                 break;
-
-                            case "4":
-                                Console.WriteLine($"Estamos progredindo. Digita qualquer coisa:");
-                                Console.ReadLine();
-                                break;
                             default:
+                                Console.WriteLine($"Digite uma opção valida");
+                                loopLogin = true;
                                 break;
                         }
                     } while (loopLogin);
 
                     break;
 
+//--------------------------------------------------------------------------------------------------------------
+
                     //Parte do menu
 
                     case "2":
-                        user.CadastrarUser(user);
+                        Console.WriteLine($@"
+                        ");
+                        Console.ReadLine();
+                        
                         loop = true;
                         break;
 
                     case "0":
                         Console.WriteLine($"Programa encerrado");
                         loop = false;
-                        break;;
+                        break;
 
                     case "4":
                         Console.WriteLine($"Estamos progredindo. Digita qualquer coisa:");
@@ -149,18 +126,18 @@ namespace ProgetoDeProdutos
 
             do
             {
+                if (usuario.Email == "" && usuario.Senha == "")
+                {
+                    return "Para logar e preciso cadastrar um usuario";
+                }
+
                 Console.WriteLine($"Digite seu nome ou Email:");
                 string nomeEmail = Console.ReadLine();
 
                 Console.WriteLine($"Digite sua senha:");
                 string senha = Console.ReadLine();
 
-                if (usuario.Email == "" && usuario.Senha == "")
-                {
-                    return "Para logar e preciso cadastrar um usuario";
-                }
-
-                else if (((nomeEmail == usuario.Nome) || (nomeEmail == usuario.Email)) && senha == usuario.Senha)
+                if (((nomeEmail == usuario.Nome) || (nomeEmail == usuario.Email)) && senha == usuario.Senha)
                 {
                     Logado = true;
 
