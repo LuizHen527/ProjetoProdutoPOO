@@ -18,3 +18,12 @@
 // Remover marca
 
 //Para usar um objeto como parametro: Seu tipo sera a classe e seu nome sera o nome de um objeto com essa classe
+
+//-------------------------------------------------------------------------
+
+using System.Globalization;
+using ProgetoDeProdutos;
+
+//PROGRAMA
+
+Login prog = new Login();

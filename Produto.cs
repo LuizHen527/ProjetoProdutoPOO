@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace ProgetoDeProdutos
 {
@@ -19,19 +20,21 @@ namespace ProgetoDeProdutos
 
         //Metodos
 
-        public string Cadastrar(Produto)
+        public string Cadastrar(Produto produto)
         {
-
+            return "";
         }
 
         public List<Produto> Listar()
         {
-            
+            List<Produto> productos = new List<Produto>();
+
+            return productos;
         }
 
-        public string Deletar(Produto)
+        public string Deletar(Produto produto)
         {
-
+            return "";
         }
     }
 }
