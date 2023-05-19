@@ -22,6 +22,19 @@ namespace ProgetoDeProdutos
 
         public string Cadastrar(Produto produto)
         {
+            Console.WriteLine($"Digite o nome do produto:");
+            produto.NomeProduto = Console.ReadLine();
+            
+            Console.WriteLine($"Digite o preço do produto:");
+            produto.Preco = float.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Digite o codigo do produto:");
+            produto.Codigo = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Digite o codigo da marca desse produto:");
+            
+            
+            
             return "";
         }
 
