@@ -16,8 +16,10 @@ namespace ProgetoDeProdutos
             //Variaveis
             string opcao = "1";
             string opcaoLogin;
+            string opcaoMenu;
             bool loop = true;
             bool loopLogin = true;
+            bool loopMenu = true;
 
             //Objetos
 
@@ -25,75 +27,107 @@ namespace ProgetoDeProdutos
 
             //Logica
 
-            //Primeira parte - Login
-
             do
             {
 
                 switch (opcao)
                 {
-                    
+
                     case "1":
 
-                    //Parte do Login
+                        //Parte do Login
 
-                    do
-                    {
-                        Console.WriteLine($@"
+                        do
+                        {
+                            Console.WriteLine($@"
                     Digite (1) para fazer login;
                            (2) para fazer cadastrar novo usuario;
                            (0) para finalizar programa.");
 
-                        opcaoLogin = Console.ReadLine();
+                            opcaoLogin = Console.ReadLine();
 
-                        switch (opcaoLogin)
-                        {
-                            case "1":
+                            switch (opcaoLogin)
+                            {
+                                case "1":
 
-                                string validacao;
+                                    string validacao;
 
-                                Console.WriteLine($"{validacao = this.Logar(user)}");
+                                    Console.WriteLine($"{validacao = this.Logar(user)}");
 
-                                if (validacao == "Para logar e preciso cadastrar um usuario")
-                                {
+                                    if (validacao == "Para logar e preciso cadastrar um usuario")
+                                    {
+                                        loopLogin = true;
+                                    }
+
+                                    else if (validacao == "Login executado com sucesso")
+                                    {
+                                        loopLogin = false;
+                                        opcao = "2";
+                                    }
+
+                                    break;
+
+                                case "2":
+                                    user.CadastrarUser(user);
                                     loopLogin = true;
-                                }
+                                    break;
 
-                                else if (validacao == "Login executado com sucesso")
-                                {
+                                case "0":
                                     loopLogin = false;
-                                    opcao = "2";
-                                }
+                                    opcao = "0";
+                                    break;
+                                default:
+                                    Console.WriteLine($"Digite uma opção valida");
+                                    loopLogin = true;
+                                    break;
+                            }
+                        } while (loopLogin);
 
-                                break;
+                        break;
 
-                            case "2":
-                                user.CadastrarUser(user);
-                                loopLogin = true;
-                                break;
-
-                            case "0":
-                                loopLogin = false;
-                                opcao = "0";
-                                break;
-                            default:
-                                Console.WriteLine($"Digite uma opção valida");
-                                loopLogin = true;
-                                break;
-                        }
-                    } while (loopLogin);
-
-                    break;
-
-//--------------------------------------------------------------------------------------------------------------
+                    //--------------------------------------------------------------------------------------------------------------
 
                     //Parte do menu
 
                     case "2":
-                        Console.WriteLine($@"
-                        ");
-                        Console.ReadLine();
-                        
+                        do
+                        {
+                            Console.WriteLine($@"
+                        Digite (1) para alterar produtos;
+                               (2) para alterar marcas;
+                               (0) para encerrar programa.");
+
+                            opcaoMenu = Console.ReadLine();
+
+                            switch (opcaoMenu)
+                            {
+                                case "1":
+
+                                Console.WriteLine($@"Digite (1) para cadastrar novo produto;
+                                                            (2) para listar produtos;
+                                                            (3) para remover produto;
+                                                            (0) para voltar ao menu principal.");
+
+                                string menuProdutos = Console.ReadLine();
+                                
+                                switch (menuProdutos)
+                                {
+                                    case "1":
+                                    break;
+                                    
+                                    default:
+                                    break;
+                                }
+
+                                break;
+
+                                default:
+                                    break;
+                            }
+
+
+                        } while (loopMenu);
+
                         loop = true;
                         break;
 
