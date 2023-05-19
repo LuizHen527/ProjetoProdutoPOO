@@ -25,17 +25,22 @@ namespace ProgetoDeProdutos
             this.Codigo = int.Parse(Console.ReadLine());
             
             this.DataCadastro = DateTime.Now;
-
-            Console.WriteLine($"{marca.DataCadastro}");
-            
             
         }
 
-        public List<Marca> ListarMarca()
+        public void ListarMarca(List<Marca> marcas, Usuario user)
         {
-            List<Marca> productos = new List<Marca>();
 
-            return productos;
+            Console.WriteLine($"Marcas cadastradas:");
+
+                                    foreach (var item in marcas)
+                                    {
+                                        Console.WriteLine($@"
+Nome da marca: {item.NomeMarca}
+Codigo da marca: {item.Codigo}
+Data do cadastro: {item.DataCadastro}
+Cadastro feito por {user.Nome}");  
+                                    }
         }
 
         public string DeletarMarca(int Codigo)

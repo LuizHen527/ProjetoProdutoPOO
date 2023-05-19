@@ -40,9 +40,9 @@ namespace ProgetoDeProdutos
                         do
                         {
                             Console.WriteLine($@"
-                    Digite (1) para fazer login;
-                           (2) para fazer cadastrar novo usuario;
-                           (0) para finalizar programa.");
+Digite (1) para fazer login;
+       (2) para fazer cadastrar novo usuario;
+       (0) para finalizar programa.");
 
                             opcaoLogin = Console.ReadLine();
 
@@ -85,17 +85,22 @@ namespace ProgetoDeProdutos
 
                         break;
 
-                    //--------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
 
-                    //Parte do menu
+                    //Parte do menu principal
 
                     case "2":
+
+                        //Coisas uteis para esse menu
+
+                        List<Marca> marcas = new List<Marca>();
+
                         do
                         {
                             Console.WriteLine($@"
-                        Digite (1) para alterar produtos;
-                               (2) para alterar marcas;
-                               (0) para encerrar programa.");
+Digite (1) para alterar produtos;
+       (2) para alterar marcas;
+       (0) para encerrar programa.");
 
                             opcaoMenu = Console.ReadLine();
 
@@ -103,18 +108,64 @@ namespace ProgetoDeProdutos
                             {
                                 case "1":
 
-                                Console.WriteLine($@"Digite (1) para cadastrar novo produto;
-                                                            (2) para listar produtos;
-                                                            (3) para remover produto;
-                                                            (0) para voltar ao menu principal.");
+                                //Cadastro de Produtos
+
+                                Console.WriteLine($@"
+Digite (1) para cadastrar novo produto;
+       (2) para listar produtos;
+       (3) para remover produto;
+       (0) para voltar ao menu principal.");
 
                                 string menuProdutos = Console.ReadLine();
                                 
                                 switch (menuProdutos)
                                 {
                                     case "1":
+                                    
+
+                                    
                                     break;
                                     
+                                    default:
+                                    break;
+                                }
+
+                                break;
+
+                            //Cadastro de marcas
+
+                            case "2":
+                                Console.WriteLine($@"
+Digite (1) para cadastrar nova marca;
+       (2) para listar marcas;
+       (3) para remover marca;
+       (0) para voltar ao menu principal.");
+
+                                string menuMarcas = Console.ReadLine();
+
+                                switch (menuMarcas)
+                                {
+
+                                    //Cadastrar nova marca
+
+                                    case "1":
+                                        Marca novaMarca = new Marca();
+
+                                        novaMarca.CadastrarMarca(novaMarca);
+
+                                        marcas.Add(novaMarca);
+
+                                        Console.WriteLine($@"
+Cadastro realizado");
+                                    break;
+
+                                    //Listar marcas
+
+                                    case "2":
+                                    
+
+                                    break;
+
                                     default:
                                     break;
                                 }
