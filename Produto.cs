@@ -20,7 +20,7 @@ namespace ProgetoDeProdutos
 
         //Metodos
 
-        public string Cadastrar(Produto produto)
+        public string Cadastrar(Produto produto, List<Marca> marcas)
         {
             Console.WriteLine($"Digite o nome do produto:");
             produto.NomeProduto = Console.ReadLine();
@@ -32,9 +32,10 @@ namespace ProgetoDeProdutos
             produto.Codigo = int.Parse(Console.ReadLine());
 
             Console.WriteLine($"Digite o codigo da marca desse produto:");
+            int procuraMarca = int.Parse(Console.ReadLine());
             
-            
-            
+            produto.marca = marcas.Find(x => x.Codigo == procuraMarca);
+
             return "";
         }
 
