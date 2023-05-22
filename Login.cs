@@ -85,7 +85,7 @@ Digite (1) para fazer login;
 
                         break;
 
-//--------------------------------------------------------------------------------------------------------------
+                    //--------------------------------------------------------------------------------------------------------------
 
                     //Parte do menu principal
 
@@ -110,67 +110,79 @@ Digite (1) para alterar produtos;
 
                                 //Cadastro de Produtos
 
-                                Console.WriteLine($@"
+                                    Console.WriteLine($@"
 Digite (1) para cadastrar novo produto;
        (2) para listar produtos;
        (3) para remover produto;
        (0) para voltar ao menu principal.");
 
-                                string menuProdutos = Console.ReadLine();
-                                
-                                switch (menuProdutos)
-                                {
-                                    case "1":
-                                    
+                                    string menuProdutos = Console.ReadLine();
 
-                                    
+                                    switch (menuProdutos)
+                                    {
+                                        case "1":
+
+
+
+                                            break;
+
+                                        default:
+                                            break;
+                                    }
+
                                     break;
-                                    
-                                    default:
-                                    break;
-                                }
 
-                                break;
+                                //Cadastro de marcas
 
-                            //Cadastro de marcas
-
-                            case "2":
-                                Console.WriteLine($@"
+                                case "2":
+                                    bool loopMarcas = true;
+                                    do
+                                    {
+                                        Console.WriteLine($@"
 Digite (1) para cadastrar nova marca;
        (2) para listar marcas;
        (3) para remover marca;
        (0) para voltar ao menu principal.");
 
-                                string menuMarcas = Console.ReadLine();
+                                        string menuMarcas = Console.ReadLine();
 
-                                switch (menuMarcas)
-                                {
+                                        switch (menuMarcas)
+                                        {
 
-                                    //Cadastrar nova marca
+                                            //Cadastrar nova marca
 
-                                    case "1":
-                                        Marca novaMarca = new Marca();
+                                            case "1":
+                                                Marca novaMarca = new Marca();
 
-                                        novaMarca.CadastrarMarca(novaMarca);
+                                                novaMarca.CadastrarMarca(novaMarca, user);
 
-                                        marcas.Add(novaMarca);
+                                                marcas.Add(novaMarca);
 
-                                        Console.WriteLine($@"
+                                                Console.WriteLine($@"
 Cadastro realizado");
+                                                break;
+
+                                            //Listar marcas
+
+                                            case "2":
+                                                Marca.ListarMarca(marcas);
+                                                break;
+
+                                            case "3":
+                                                Console.WriteLine(Marca.DeletarMarca(marcas));
+                                                break;
+
+                                            case "0":
+                                                loopMarcas = false;
+                                                break;
+
+                                            default:
+                                                break;
+                                        }
+                                    } while (loopMarcas);
+
+
                                     break;
-
-                                    //Listar marcas
-
-                                    case "2":
-                                    
-
-                                    break;
-
-                                    default:
-                                    break;
-                                }
-
-                                break;
 
                                 default:
                                     break;

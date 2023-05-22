@@ -34,6 +34,7 @@ namespace ProgetoDeProdutos
             Console.WriteLine($"Seu cadastro foi realizado com sucesso");
              
         }
+        
 
         public string DeletarUser(Usuario usuario)
         {
