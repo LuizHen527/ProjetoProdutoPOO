@@ -65,11 +65,13 @@ Cadastro feito por {item.NomeUser}");
             }
             else
             {
+                Console.WriteLine($@"
+Digite a marca que deseja deletar.
+Marcas cadastradas:");
+                
             foreach (var item in marcas)
             {
                 Console.WriteLine($@"
-Marcas:
-
 Nome da marca: {item.NomeMarca}
 Para deletar digite {marcas.IndexOf(item)}
                 ");
@@ -78,7 +80,9 @@ Para deletar digite {marcas.IndexOf(item)}
             int index = int.Parse(Console.ReadLine());
 
             marcas.RemoveAt(index);
+
             Marca.NumeroMarcas--;
+
             return "Marca removida com sucesso";
             }
         }

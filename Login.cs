@@ -94,6 +94,7 @@ Digite (1) para fazer login;
                         //Coisas uteis para esse menu
 
                         List<Marca> marcas = new List<Marca>();
+                        List<Produto> produtos = new List<Produto>();
 
                         do
                         {
@@ -120,9 +121,23 @@ Digite (1) para cadastrar novo produto;
 
                                     switch (menuProdutos)
                                     {
+                                        //Cadastrar produtos
+
                                         case "1":
+                                            Produto novoProduto = new Produto();
+                                            
+                                            novoProduto.Cadastrar(novoProduto, marcas, user);
 
+                                            produtos.Add(novoProduto);
 
+                                            Console.WriteLine($@"
+Novo produto criado com sucesso.");
+                                            break;
+
+                                        //Listar produtos
+
+                                        case "2":
+                                            
 
                                             break;
 
@@ -167,6 +182,8 @@ Cadastro realizado");
                                             case "2":
                                                 Marca.ListarMarca(marcas);
                                                 break;
+
+                                            // Deletar marcas
 
                                             case "3":
                                                 Console.WriteLine(Marca.DeletarMarca(marcas));
